@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'app_config.dart';
+import 'package:quran/app/data/main_di_container.dart';
 
 void main() {
-  runApp(const AppConfig());
+  runApp(diContainer.makeApp());
 }
