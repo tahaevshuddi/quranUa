@@ -28,6 +28,7 @@ mixin _$SurahDto {
   dynamic get name_arabic => throw _privateConstructorUsedError;
   dynamic get verses_count => throw _privateConstructorUsedError;
   dynamic get pages => throw _privateConstructorUsedError;
+  dynamic get translated_name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +49,8 @@ abstract class $SurahDtoCopyWith<$Res> {
       dynamic name_complex,
       dynamic name_arabic,
       dynamic verses_count,
-      dynamic pages});
+      dynamic pages,
+      dynamic translated_name});
 }
 
 /// @nodoc
@@ -72,6 +74,7 @@ class _$SurahDtoCopyWithImpl<$Res, $Val extends SurahDto>
     Object? name_arabic = freezed,
     Object? verses_count = freezed,
     Object? pages = freezed,
+    Object? translated_name = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -106,6 +109,10 @@ class _$SurahDtoCopyWithImpl<$Res, $Val extends SurahDto>
           ? _value.pages
           : pages // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      translated_name: freezed == translated_name
+          ? _value.translated_name
+          : translated_name // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -125,7 +132,8 @@ abstract class _$$_SurahDtoCopyWith<$Res> implements $SurahDtoCopyWith<$Res> {
       dynamic name_complex,
       dynamic name_arabic,
       dynamic verses_count,
-      dynamic pages});
+      dynamic pages,
+      dynamic translated_name});
 }
 
 /// @nodoc
@@ -147,6 +155,7 @@ class __$$_SurahDtoCopyWithImpl<$Res>
     Object? name_arabic = freezed,
     Object? verses_count = freezed,
     Object? pages = freezed,
+    Object? translated_name = freezed,
   }) {
     return _then(_$_SurahDto(
       id: freezed == id
@@ -181,6 +190,10 @@ class __$$_SurahDtoCopyWithImpl<$Res>
           ? _value.pages
           : pages // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      translated_name: freezed == translated_name
+          ? _value.translated_name
+          : translated_name // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -196,7 +209,8 @@ class _$_SurahDto implements _SurahDto {
       this.name_complex,
       this.name_arabic,
       this.verses_count,
-      this.pages});
+      this.pages,
+      this.translated_name});
 
   factory _$_SurahDto.fromJson(Map<String, dynamic> json) =>
       _$$_SurahDtoFromJson(json);
@@ -217,10 +231,12 @@ class _$_SurahDto implements _SurahDto {
   final dynamic verses_count;
   @override
   final dynamic pages;
+  @override
+  final dynamic translated_name;
 
   @override
   String toString() {
-    return 'SurahDto(id: $id, revelation_place: $revelation_place, revelation_order: $revelation_order, bismillah_pre: $bismillah_pre, name_complex: $name_complex, name_arabic: $name_arabic, verses_count: $verses_count, pages: $pages)';
+    return 'SurahDto(id: $id, revelation_place: $revelation_place, revelation_order: $revelation_order, bismillah_pre: $bismillah_pre, name_complex: $name_complex, name_arabic: $name_arabic, verses_count: $verses_count, pages: $pages, translated_name: $translated_name)';
   }
 
   @override
@@ -241,7 +257,9 @@ class _$_SurahDto implements _SurahDto {
                 .equals(other.name_arabic, name_arabic) &&
             const DeepCollectionEquality()
                 .equals(other.verses_count, verses_count) &&
-            const DeepCollectionEquality().equals(other.pages, pages));
+            const DeepCollectionEquality().equals(other.pages, pages) &&
+            const DeepCollectionEquality()
+                .equals(other.translated_name, translated_name));
   }
 
   @JsonKey(ignore: true)
@@ -255,7 +273,8 @@ class _$_SurahDto implements _SurahDto {
       const DeepCollectionEquality().hash(name_complex),
       const DeepCollectionEquality().hash(name_arabic),
       const DeepCollectionEquality().hash(verses_count),
-      const DeepCollectionEquality().hash(pages));
+      const DeepCollectionEquality().hash(pages),
+      const DeepCollectionEquality().hash(translated_name));
 
   @JsonKey(ignore: true)
   @override
@@ -280,7 +299,8 @@ abstract class _SurahDto implements SurahDto {
       final dynamic name_complex,
       final dynamic name_arabic,
       final dynamic verses_count,
-      final dynamic pages}) = _$_SurahDto;
+      final dynamic pages,
+      final dynamic translated_name}) = _$_SurahDto;
 
   factory _SurahDto.fromJson(Map<String, dynamic> json) = _$_SurahDto.fromJson;
 
@@ -300,6 +320,8 @@ abstract class _SurahDto implements SurahDto {
   dynamic get verses_count;
   @override
   dynamic get pages;
+  @override
+  dynamic get translated_name;
   @override
   @JsonKey(ignore: true)
   _$$_SurahDtoCopyWith<_$_SurahDto> get copyWith =>

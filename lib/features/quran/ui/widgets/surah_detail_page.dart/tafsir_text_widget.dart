@@ -12,9 +12,9 @@ class TafsirTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      '${surah.tafsirText} ',
-      style: const TextStyle(fontSize: 18),
+    return const Text(
+      '',
+      style: TextStyle(fontSize: 18),
     );
   }
 }

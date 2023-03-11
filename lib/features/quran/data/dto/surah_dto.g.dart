@@ -15,6 +15,7 @@ _$_SurahDto _$$_SurahDtoFromJson(Map<String, dynamic> json) => _$_SurahDto(
       name_arabic: json['name_arabic'],
       verses_count: json['verses_count'],
       pages: json['pages'],
+      translated_name: json['translated_name'],
     );
 
 Map<String, dynamic> _$$_SurahDtoToJson(_$_SurahDto instance) =>
@@ -27,4 +28,5 @@ Map<String, dynamic> _$$_SurahDtoToJson(_$_SurahDto instance) =>
       'name_arabic': instance.name_arabic,
       'verses_count': instance.verses_count,
       'pages': instance.pages,
+      'translated_name': instance.translated_name,
     };

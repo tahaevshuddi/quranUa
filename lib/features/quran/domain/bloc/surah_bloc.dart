@@ -23,11 +23,10 @@ class SurahBloc extends Bloc<SurahEvent, SurahState> {
   ) async {
     try {
       emit(const SurahState.isLoading());
-      quranRepository.
+      final surahList = await quranRepository.fetchSurahList();
+      emit(SurahState.success(surahList: surahList));
     } catch (error) {
-      emit(
-        SurahState.error(errorMessage: error.toString()),
-      );
+      emit(SurahState.error(errorMessage: error.toString()));
     }
   }
 }
