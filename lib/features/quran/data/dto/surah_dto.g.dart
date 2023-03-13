@@ -7,26 +7,18 @@ part of 'surah_dto.dart';
 // **************************************************************************
 
 _$_SurahDto _$$_SurahDtoFromJson(Map<String, dynamic> json) => _$_SurahDto(
-      id: json['id'],
+      number: json['number'],
+      basmala: json['basmala'],
       revelation_place: json['revelation_place'],
-      revelation_order: json['revelation_order'],
-      bismillah_pre: json['bismillah_pre'],
-      name_complex: json['name_complex'],
-      name_arabic: json['name_arabic'],
-      verses_count: json['verses_count'],
-      pages: json['pages'],
-      translated_name: json['translated_name'],
+      ayah_count: json['ayah_count'],
+      name: json['name'],
     );
 
 Map<String, dynamic> _$$_SurahDtoToJson(_$_SurahDto instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'number': instance.number,
+      'basmala': instance.basmala,
       'revelation_place': instance.revelation_place,
-      'revelation_order': instance.revelation_order,
-      'bismillah_pre': instance.bismillah_pre,
-      'name_complex': instance.name_complex,
-      'name_arabic': instance.name_arabic,
-      'verses_count': instance.verses_count,
-      'pages': instance.pages,
-      'translated_name': instance.translated_name,
+      'ayah_count': instance.ayah_count,
+      'name': instance.name,
     };

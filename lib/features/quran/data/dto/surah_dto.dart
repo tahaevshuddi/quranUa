@@ -6,15 +6,11 @@ part 'surah_dto.g.dart';
 @freezed
 class SurahDto with _$SurahDto {
   factory SurahDto({
-    dynamic id,
-    dynamic revelation_place,
-    dynamic revelation_order,
-    dynamic bismillah_pre,
-    dynamic name_complex,
-    dynamic name_arabic,
-    dynamic verses_count,
-    dynamic pages,
-    dynamic translated_name,
+      required dynamic number,
+      required dynamic basmala,
+      required dynamic revelation_place,
+      required dynamic ayah_count,
+      required dynamic name,
   }) = _SurahDto;
 
   factory SurahDto.fromJson(Map<String, dynamic> json) =>

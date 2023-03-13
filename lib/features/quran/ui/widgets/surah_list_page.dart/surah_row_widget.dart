@@ -15,7 +15,11 @@ class SurahRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(surah.arabicName),
+      title: Text(
+        surah.arabicName,
+        textDirection: TextDirection.rtl,
+        textAlign: TextAlign.left,
+      ),
       subtitle: Text('${surah.name} '),
       trailing: const Icon(Icons.arrow_forward_ios),
       leading: Text('${surah.id}'),

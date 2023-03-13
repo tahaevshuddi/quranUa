@@ -15,10 +15,10 @@ class MainQuranRepsoitory implements QuranRepository {
     final surahEntityList = surahDtoList
         .map(
           (dto) => SurahEntity(
-            id: dto.id,
-            name: dto.translated_name['name'],
-            arabicName: dto.name_arabic,
-            ayatCount: dto.verses_count.toString(),
+            id: dto.number,
+            name: dto.name['translation'],
+            arabicName: dto.name['arabic'],
+            ayatCount: dto.ayah_count.toString(),
           ),
         )
         .toList();
