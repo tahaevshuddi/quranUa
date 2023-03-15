@@ -15,7 +15,7 @@ extension AppRoutesExtension on AppRoutes {
       case AppRoutes.settingsPage:
         return 'settings';
       case AppRoutes.surahDetails:
-        return 'surah-details/:id';
+        return 'surah-details';
       case AppRoutes.language:
         return 'language';
       case AppRoutes.textSettings:

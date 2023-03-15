@@ -33,7 +33,7 @@ class SurahListPage extends StatelessWidget {
               itemCount: state.surahList.length,
               itemBuilder: (context, index) {
                 final surah = state.surahList[index];
-                return SurahRowWidget(surah: surah);
+                return SurahRowWidget(surah);
               },
               separatorBuilder: (context, index) => const Divider(),
             ),

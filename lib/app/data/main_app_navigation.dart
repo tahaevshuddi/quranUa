@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:quran/app/domain/app_navigation.dart';
-import 'package:quran/features/quran/ui/pages/surah_detail_page.dart';
+import 'package:quran/features/quran/ui/pages/surah_detail_config_page.dart';
 import 'package:quran/features/quran/ui/pages/surah_list_page.dart';
 import 'package:quran/features/settings/ui/pages/language.dart';
 import 'package:quran/features/settings/ui/pages/text_settings.dart';
@@ -22,7 +22,7 @@ class MainAppNavigation implements AppNavigation {
               GoRoute(
                 name: AppRoutes.surahDetails.toName,
                 path: AppRoutes.surahDetails.toPath,
-                builder: (context, state) => const SurahDetailPage(),
+                builder: (context, state) => const SurahDetailConfigPage(),
               ),
               GoRoute(
                   name: AppRoutes.settingsPage.toName,

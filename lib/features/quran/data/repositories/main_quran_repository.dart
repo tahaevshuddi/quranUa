@@ -1,4 +1,6 @@
+import 'package:quran/features/quran/data/dto/ayah_dto.dart';
 import 'package:quran/features/quran/data/dto/surah_dto.dart';
+import 'package:quran/features/quran/domain/entities/ayah_entity.dart';
 import 'package:quran/features/quran/domain/entities/surah_entity.dart';
 import 'package:quran/features/quran/domain/repositories/quran_repository.dart';
 import 'package:quran/features/quran/domain/sources/quran_source.dart';
@@ -24,5 +26,21 @@ class MainQuranRepsoitory implements QuranRepository {
         .toList();
 
     return surahEntityList;
+  }
+
+  @override
+  Future<List<AyahEntity>> fetchSurah(final int id) async {
+    final Iterable<AyahDto> ayahDtoList =
+        await networkQuranSource.fetchSurah(id);
+    final ayahEntityList = ayahDtoList
+        .map(
+          (dto) => AyahEntity(
+            id: dto.number,
+            arabicText: dto.arabic_text,
+            translation: dto.translations['uk-yakubovych'],
+          ),
+        )
+        .toList();
+    return ayahEntityList;
   }
 }

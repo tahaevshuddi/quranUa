@@ -1,32 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quran/features/quran/domain/bloc/surah_detail_bloc.dart';
 
 class SurahDetailPage extends StatelessWidget {
-  // final int surahId;
   const SurahDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Container(),
+    return BlocBuilder<SurahDetailBloc, SurahDetailState>(
+      builder: (context, state) {
+        return state.map(
+          isLoading: (_) => const Center(child: CircularProgressIndicator()),
+          error: (state) => Center(
+            child: Text(state.errorMessage ?? 'Неизвестная ошибка'),
+          ),
+          success: (state) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            child: ListView.builder(
+              itemCount: state.surah.ayahList.length,
+              itemBuilder: (context, index) {
+                final ayah = state.surah.ayahList[index];
+                return ListTile(
+                  title: Text(ayah.arabicText),
+                  subtitle: Text(ayah.translation),
+                  leading: Text(ayah.id.toString()),
+                );
+              },
+            ),
+          ),
+        );
+      },
     );
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: Text(surah.arabicName),
-    //     titleTextStyle: const TextStyle(fontSize: 34),
-    //   ),
-    //   body: Padding(
-    //     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-    //     child: ListView(
-    //       children: [
-    //         Align(child: SurahNameWidget(surah: surah)),
-    //         const SizedBox(height: 5),
-    //         Align(child: SurahAyatCountWidget(surah: surah)),
-    //         const SizedBox(height: 15),
-    //         TafsirTextWidget(surah: surah),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 }
+
+
+// TafsirTextWidget('Текст суры')

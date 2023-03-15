@@ -22,8 +22,8 @@ SurahEntity _$SurahEntityFromJson(Map<String, dynamic> json) {
 mixin _$SurahEntity {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get arabicName =>
-      throw _privateConstructorUsedError; // required String tafsirText,
+  String get arabicName => throw _privateConstructorUsedError;
+  List<AyahEntity> get ayahList => throw _privateConstructorUsedError;
   String get ayatCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,12 @@ abstract class $SurahEntityCopyWith<$Res> {
           SurahEntity value, $Res Function(SurahEntity) then) =
       _$SurahEntityCopyWithImpl<$Res, SurahEntity>;
   @useResult
-  $Res call({int id, String name, String arabicName, String ayatCount});
+  $Res call(
+      {int id,
+      String name,
+      String arabicName,
+      List<AyahEntity> ayahList,
+      String ayatCount});
 }
 
 /// @nodoc
@@ -57,6 +62,7 @@ class _$SurahEntityCopyWithImpl<$Res, $Val extends SurahEntity>
     Object? id = null,
     Object? name = null,
     Object? arabicName = null,
+    Object? ayahList = null,
     Object? ayatCount = null,
   }) {
     return _then(_value.copyWith(
@@ -72,6 +78,10 @@ class _$SurahEntityCopyWithImpl<$Res, $Val extends SurahEntity>
           ? _value.arabicName
           : arabicName // ignore: cast_nullable_to_non_nullable
               as String,
+      ayahList: null == ayahList
+          ? _value.ayahList
+          : ayahList // ignore: cast_nullable_to_non_nullable
+              as List<AyahEntity>,
       ayatCount: null == ayatCount
           ? _value.ayatCount
           : ayatCount // ignore: cast_nullable_to_non_nullable
@@ -88,7 +98,12 @@ abstract class _$$_SurahEntityCopyWith<$Res>
       __$$_SurahEntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, String arabicName, String ayatCount});
+  $Res call(
+      {int id,
+      String name,
+      String arabicName,
+      List<AyahEntity> ayahList,
+      String ayatCount});
 }
 
 /// @nodoc
@@ -105,6 +120,7 @@ class __$$_SurahEntityCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? arabicName = null,
+    Object? ayahList = null,
     Object? ayatCount = null,
   }) {
     return _then(_$_SurahEntity(
@@ -120,6 +136,10 @@ class __$$_SurahEntityCopyWithImpl<$Res>
           ? _value.arabicName
           : arabicName // ignore: cast_nullable_to_non_nullable
               as String,
+      ayahList: null == ayahList
+          ? _value._ayahList
+          : ayahList // ignore: cast_nullable_to_non_nullable
+              as List<AyahEntity>,
       ayatCount: null == ayatCount
           ? _value.ayatCount
           : ayatCount // ignore: cast_nullable_to_non_nullable
@@ -135,8 +155,10 @@ class _$_SurahEntity extends _SurahEntity {
       {required this.id,
       required this.name,
       required this.arabicName,
+      final List<AyahEntity> ayahList = const [],
       required this.ayatCount})
-      : super._();
+      : _ayahList = ayahList,
+        super._();
 
   factory _$_SurahEntity.fromJson(Map<String, dynamic> json) =>
       _$$_SurahEntityFromJson(json);
@@ -147,13 +169,21 @@ class _$_SurahEntity extends _SurahEntity {
   final String name;
   @override
   final String arabicName;
-// required String tafsirText,
+  final List<AyahEntity> _ayahList;
+  @override
+  @JsonKey()
+  List<AyahEntity> get ayahList {
+    if (_ayahList is EqualUnmodifiableListView) return _ayahList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_ayahList);
+  }
+
   @override
   final String ayatCount;
 
   @override
   String toString() {
-    return 'SurahEntity(id: $id, name: $name, arabicName: $arabicName, ayatCount: $ayatCount)';
+    return 'SurahEntity(id: $id, name: $name, arabicName: $arabicName, ayahList: $ayahList, ayatCount: $ayatCount)';
   }
 
   @override
@@ -165,13 +195,15 @@ class _$_SurahEntity extends _SurahEntity {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.arabicName, arabicName) ||
                 other.arabicName == arabicName) &&
+            const DeepCollectionEquality().equals(other._ayahList, _ayahList) &&
             (identical(other.ayatCount, ayatCount) ||
                 other.ayatCount == ayatCount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, arabicName, ayatCount);
+  int get hashCode => Object.hash(runtimeType, id, name, arabicName,
+      const DeepCollectionEquality().hash(_ayahList), ayatCount);
 
   @JsonKey(ignore: true)
   @override
@@ -192,6 +224,7 @@ abstract class _SurahEntity extends SurahEntity {
       {required final int id,
       required final String name,
       required final String arabicName,
+      final List<AyahEntity> ayahList,
       required final String ayatCount}) = _$_SurahEntity;
   _SurahEntity._() : super._();
 
@@ -204,7 +237,9 @@ abstract class _SurahEntity extends SurahEntity {
   String get name;
   @override
   String get arabicName;
-  @override // required String tafsirText,
+  @override
+  List<AyahEntity> get ayahList;
+  @override
   String get ayatCount;
   @override
   @JsonKey(ignore: true)
