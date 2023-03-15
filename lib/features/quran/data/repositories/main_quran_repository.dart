@@ -19,6 +19,7 @@ class MainQuranRepsoitory implements QuranRepository {
           (dto) => SurahEntity(
             id: dto.number,
             name: dto.name['translation'],
+            basmala: dto.basmala,
             arabicName: dto.name['arabic'],
             ayatCount: dto.ayah_count.toString(),
           ),

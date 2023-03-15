@@ -22,7 +22,8 @@ class MainAppNavigation implements AppNavigation {
               GoRoute(
                 name: AppRoutes.surahDetails.toName,
                 path: AppRoutes.surahDetails.toPath,
-                builder: (context, state) => const SurahDetailConfigPage(),
+                builder: (context, state) => SurahDetailConfigPage(
+                    state.params['arabicName'] ?? 'Имя суры'),
               ),
               GoRoute(
                   name: AppRoutes.settingsPage.toName,

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quran/app/ui/components/app_basmala.dart';
 import 'package:quran/features/quran/domain/bloc/surah_detail_bloc.dart';
+import 'package:quran/features/quran/domain/entities/surah_entity.dart';
+
+import '../widgets/surah_detail_page.dart/ayah_row_widget.dart';
 
 class SurahDetailPage extends StatelessWidget {
   const SurahDetailPage({super.key});
@@ -9,30 +13,46 @@ class SurahDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SurahDetailBloc, SurahDetailState>(
       builder: (context, state) {
-        return state.map(
-          isLoading: (_) => const Center(child: CircularProgressIndicator()),
-          error: (state) => Center(
-            child: Text(state.errorMessage ?? 'Неизвестная ошибка'),
+        return state.when(
+          isLoading: () => const Center(child: CircularProgressIndicator()),
+          error: (errorMessage) => Center(
+            child: Text(errorMessage ?? 'Неизвестная ошибка'),
           ),
-          success: (state) => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-            child: ListView.builder(
-              itemCount: state.surah.ayahList.length,
-              itemBuilder: (context, index) {
-                final ayah = state.surah.ayahList[index];
-                return ListTile(
-                  title: Text(ayah.arabicText),
-                  subtitle: Text(ayah.translation),
-                  leading: Text(ayah.id.toString()),
-                );
-              },
-            ),
-          ),
+          success: (surah) => _SurahContentWidget(surah),
         );
       },
     );
   }
 }
 
+class _SurahContentWidget extends StatelessWidget {
+  const _SurahContentWidget(this.surah);
 
-// TafsirTextWidget('Текст суры')
+  final SurahEntity surah;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+      child: ListView.separated(
+        shrinkWrap: true,
+        itemCount: surah.ayahList.length,
+        itemBuilder: (context, index) {
+          final ayah = surah.ayahList[index];
+          if (index == 0 && surah.basmala) {
+            return Column(
+              children: [
+                const AppBasmala(),
+                const SizedBox(height: 30),
+                AyahRowWidget(ayah: ayah),
+              ],
+            );
+          } else {
+            return AyahRowWidget(ayah: ayah);
+          }
+        },
+        separatorBuilder: (context, index) => const Divider(),
+      ),
+    );
+  }
+}

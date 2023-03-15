@@ -23,6 +23,7 @@ mixin _$SurahEntity {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get arabicName => throw _privateConstructorUsedError;
+  bool get basmala => throw _privateConstructorUsedError;
   List<AyahEntity> get ayahList => throw _privateConstructorUsedError;
   String get ayatCount => throw _privateConstructorUsedError;
 
@@ -42,6 +43,7 @@ abstract class $SurahEntityCopyWith<$Res> {
       {int id,
       String name,
       String arabicName,
+      bool basmala,
       List<AyahEntity> ayahList,
       String ayatCount});
 }
@@ -62,6 +64,7 @@ class _$SurahEntityCopyWithImpl<$Res, $Val extends SurahEntity>
     Object? id = null,
     Object? name = null,
     Object? arabicName = null,
+    Object? basmala = null,
     Object? ayahList = null,
     Object? ayatCount = null,
   }) {
@@ -78,6 +81,10 @@ class _$SurahEntityCopyWithImpl<$Res, $Val extends SurahEntity>
           ? _value.arabicName
           : arabicName // ignore: cast_nullable_to_non_nullable
               as String,
+      basmala: null == basmala
+          ? _value.basmala
+          : basmala // ignore: cast_nullable_to_non_nullable
+              as bool,
       ayahList: null == ayahList
           ? _value.ayahList
           : ayahList // ignore: cast_nullable_to_non_nullable
@@ -102,6 +109,7 @@ abstract class _$$_SurahEntityCopyWith<$Res>
       {int id,
       String name,
       String arabicName,
+      bool basmala,
       List<AyahEntity> ayahList,
       String ayatCount});
 }
@@ -120,6 +128,7 @@ class __$$_SurahEntityCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? arabicName = null,
+    Object? basmala = null,
     Object? ayahList = null,
     Object? ayatCount = null,
   }) {
@@ -136,6 +145,10 @@ class __$$_SurahEntityCopyWithImpl<$Res>
           ? _value.arabicName
           : arabicName // ignore: cast_nullable_to_non_nullable
               as String,
+      basmala: null == basmala
+          ? _value.basmala
+          : basmala // ignore: cast_nullable_to_non_nullable
+              as bool,
       ayahList: null == ayahList
           ? _value._ayahList
           : ayahList // ignore: cast_nullable_to_non_nullable
@@ -155,6 +168,7 @@ class _$_SurahEntity extends _SurahEntity {
       {required this.id,
       required this.name,
       required this.arabicName,
+      required this.basmala,
       final List<AyahEntity> ayahList = const [],
       required this.ayatCount})
       : _ayahList = ayahList,
@@ -169,6 +183,8 @@ class _$_SurahEntity extends _SurahEntity {
   final String name;
   @override
   final String arabicName;
+  @override
+  final bool basmala;
   final List<AyahEntity> _ayahList;
   @override
   @JsonKey()
@@ -183,7 +199,7 @@ class _$_SurahEntity extends _SurahEntity {
 
   @override
   String toString() {
-    return 'SurahEntity(id: $id, name: $name, arabicName: $arabicName, ayahList: $ayahList, ayatCount: $ayatCount)';
+    return 'SurahEntity(id: $id, name: $name, arabicName: $arabicName, basmala: $basmala, ayahList: $ayahList, ayatCount: $ayatCount)';
   }
 
   @override
@@ -195,6 +211,7 @@ class _$_SurahEntity extends _SurahEntity {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.arabicName, arabicName) ||
                 other.arabicName == arabicName) &&
+            (identical(other.basmala, basmala) || other.basmala == basmala) &&
             const DeepCollectionEquality().equals(other._ayahList, _ayahList) &&
             (identical(other.ayatCount, ayatCount) ||
                 other.ayatCount == ayatCount));
@@ -202,7 +219,7 @@ class _$_SurahEntity extends _SurahEntity {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, arabicName,
+  int get hashCode => Object.hash(runtimeType, id, name, arabicName, basmala,
       const DeepCollectionEquality().hash(_ayahList), ayatCount);
 
   @JsonKey(ignore: true)
@@ -224,6 +241,7 @@ abstract class _SurahEntity extends SurahEntity {
       {required final int id,
       required final String name,
       required final String arabicName,
+      required final bool basmala,
       final List<AyahEntity> ayahList,
       required final String ayatCount}) = _$_SurahEntity;
   _SurahEntity._() : super._();
@@ -237,6 +255,8 @@ abstract class _SurahEntity extends SurahEntity {
   String get name;
   @override
   String get arabicName;
+  @override
+  bool get basmala;
   @override
   List<AyahEntity> get ayahList;
   @override

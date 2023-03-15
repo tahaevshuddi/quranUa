@@ -11,6 +11,7 @@ class SurahEntity with _$SurahEntity {
     required int id,
     required String name,
     required String arabicName,
+    required bool basmala,
     @Default([]) List<AyahEntity> ayahList,
     required String ayatCount,
   }) = _SurahEntity;

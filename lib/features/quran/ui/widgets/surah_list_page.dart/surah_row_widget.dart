@@ -26,7 +26,10 @@ class SurahRowWidget extends StatelessWidget {
         context
             .read<SurahDetailBloc>()
             .add(SurahDetailEvent.fetchSurah(surah: surah));
-        context.goNamed(AppRoutes.surahDetails.toName);
+        context.goNamed(
+          AppRoutes.surahDetails.toName,
+          params: {'arabicName': surah.arabicName},
+        );
       },
     );
   }
