@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:quran/app/data/main_app_navigation.dart';
 import 'package:quran/app/domain/app_navigation.dart';
 import 'package:quran/app_page.dart';
+import 'package:quran/features/quran/domain/repositories/quran_repository.dart';
 
-class AppConfig extends StatefulWidget {
-  const AppConfig({super.key});
+class AppConfig extends StatelessWidget {
+  const AppConfig({
+    super.key,
+    required this.appNavigation,
+    required this.quranRepository,
+  });
 
-  @override
-  State<AppConfig> createState() => _AppConfigState();
-}
+  final AppNavigation appNavigation;
+  final QuranRepository quranRepository;
 
-class _AppConfigState extends State<AppConfig> {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider<AppNavigation>(
-          create: (context) => MainAppNavigation(),
-        )
-      ],
-      child: const AppPage(),
+    return AppPage(
+      appNavigation: appNavigation,
+      quranRepository: quranRepository,
     );
   }
 }

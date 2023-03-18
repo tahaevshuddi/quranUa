@@ -30,6 +30,15 @@ environment:
 dependencies:
   go_router: ^6.0.9
   provider: ^6.0.5
+  bloc: ^8.1.1
+  flutter_bloc: ^8.1.2
+  freezed: ^2.3.2
+  freezed_annotation: ^2.2.0
+  build_runner: ^2.3.3
+  json_annotation: ^4.8.0
+  json_serializable: ^6.6.1
+  dio: ^5.0.2
+  flutter_svg: ^2.0.4
   flutter:
     sdk: flutter
 
@@ -62,8 +71,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
+    - assets/images/svg/
+    - assets/images/svg/icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
